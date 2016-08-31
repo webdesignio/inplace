@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "  Start watcher"
+watch-run -i -p 'src/**,!src/*_test.js' scripts/build
+#ava --watch
