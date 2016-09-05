@@ -31,13 +31,14 @@ export default class Inplace {
   }
 
   render (props, el) {
-    const { value, isEditable } = this.mapProps(props)
-    if (!el) return value
+    const { value, isEditable, innerHTML } = this.mapProps(props)
+    const realValue = value || innerHTML || ''
+    if (!el) return realValue
     const contenteditable = isEditable ? 'true' : 'false'
     if (el.getAttribute('contenteditable') !== contenteditable) {
-      el.setAttribute('contenteditable', contenteditable)      
+      el.setAttribute('contenteditable', contenteditable)
     }
-    if (el.innerHTML !== value) el.innerHTML = value
+    if (el.innerHTML !== realValue) el.innerHTML = realValue
   }
 }
 
