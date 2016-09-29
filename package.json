@@ -23,7 +23,9 @@
     "babel-preset-react": "^6.11.1",
     "watch-run": "^1.2.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sanitize-html": "^1.13.0"
+  },
   "peerDependencies": {
     "@webdesignio/floorman": "^1.1.0"
   }

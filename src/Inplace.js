@@ -3,6 +3,7 @@ import {
   createValueSelector,
   isEditable
 } from '@webdesignio/floorman/selectors'
+import sanitize from 'sanitize-html'
 
 export default class Inplace {
   constructor (props, el) {
@@ -27,7 +28,8 @@ export default class Inplace {
   }
 
   onInput (props, e) {
-    props.onUpdate(e.target.innerHTML)
+    const value = sanitize(e.target.innerHTML, { allowedTags: [] })
+    props.onUpdate(value)
   }
 
   render (props, el) {
