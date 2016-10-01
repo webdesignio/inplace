@@ -14,7 +14,9 @@
       "@webdesignio/inplace/transform.js"
     ]
   },
-  "keywords": [],
+  "keywords": [
+    "webdesignio-component"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
