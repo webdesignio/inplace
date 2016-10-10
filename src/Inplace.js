@@ -33,22 +33,21 @@ export default class Inplace {
   }
 
   render (props, el) {
-    const { value, isEditable, innerHTML } = this.mapProps(props)
-    const realValue = value || innerHTML || ''
-    if (!el) return realValue
+    const { value, isEditable } = this.mapProps(props)
+    if (!el) return value
     const contenteditable = isEditable ? 'true' : 'false'
     if (el.getAttribute('contenteditable') !== contenteditable) {
       el.setAttribute('contenteditable', contenteditable)
     }
-    if (el.innerHTML !== realValue) el.innerHTML = realValue
+    if (el.innerHTML !== value) el.innerHTML = value
   }
 }
 
 function mapStateToProps () {
   const value = createValueSelector()
-  return (state, { name }) => ({
+  return (state, { name, innerHTML }) => ({
     isEditable: isEditable(state),
-    value: value(state, name) || ''
+    value: value(state, name) == null ? (innerHTML || '') : value(state, name)
   })
 }
 
