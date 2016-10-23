@@ -27,6 +27,7 @@
     "watch-run": "^1.2.4"
   },
   "dependencies": {
+    "@webdesignio/floorman": "^1.1.0",
     "sanitize-html": "^1.13.0"
   },
   "peerDependencies": {
