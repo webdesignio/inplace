@@ -24,7 +24,7 @@ class Inplace extends Component {
       this.props.value == null
         ? (this.props.children || this.props.innerHTML || '')
         : this.props.value
-    if (this.props.isEditable) {
+    if (!this.props.isEditable) {
       return React.createElement(tagName, { className, id }, value)
     }
     return (
